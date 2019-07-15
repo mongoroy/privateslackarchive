@@ -7,8 +7,10 @@
     "start": "node utils/webserver.js"
   },
   "dependencies": {
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "@emotion/core": "10.0.9",
+    "@emotion/styled": "10.0.9"
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",
@@ -26,6 +28,7 @@
     "webpack": "4.28.4",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "3.1.14",
-    "write-file-webpack-plugin": "4.5.0"
+    "write-file-webpack-plugin": "4.5.0",
+    "mongodb-stitch-browser-sdk": "4.3.2"
   }
 }
