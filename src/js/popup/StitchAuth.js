@@ -13,10 +13,8 @@ const StitchAuthContext = React.createContext();
 
 // Create a React Hook that lets us get data from our auth context
 export function useStitchAuth() {
-  console.log("hi")
   const context = React.useContext(StitchAuthContext);
   if (!context) {
-    console.log("error");
     throw new Error(`useStitchAuth must be used within a StitchAuthProvider`);
   }
   return context;

@@ -9,8 +9,11 @@
   "dependencies": {
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
+    "react-error-boundary": "1.2.3",
     "@emotion/core": "10.0.9",
-    "@emotion/styled": "10.0.9"
+    "@emotion/styled": "10.0.9",
+    "bootstrap": "4.3.1",
+    "reactstrap": "7.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",

@@ -3,6 +3,8 @@ import icon from "../../img/icon-128.png"
 import { hot } from "react-hot-loader";
 import { StitchAuthProvider, useStitchAuth } from "./StitchAuth";
 import styled from "@emotion/styled";
+import Login from "./Login";
+import { Button } from "reactstrap";
 
 class App extends React.Component {
   render () {
@@ -22,9 +24,10 @@ function AppUI() {
   return (
       <Layout>
         <Navbar>
+          {isLoggedIn && <Button onClick={handleLogout}>Logout</Button>}
           <AppTitle>Private Slack Archive</AppTitle>
         </Navbar>
-        <Greeting/>
+        {isLoggedIn ? <Greeting /> : <Login />}
       </Layout>
   );
 }
