@@ -6,15 +6,14 @@ import Login from "./Login";
 import { Button } from "reactstrap";
 import TodoApp from './TodoApp';
 
-class App extends React.Component {
-  render () {
-    return (
-        <StitchAuthProvider>
-          <AppUI />
-        </StitchAuthProvider>
-    )
-  }
-};
+App.propTypes = {};
+export default function App() {
+  return (
+      <StitchAuthProvider>
+        <AppUI />
+      </StitchAuthProvider>
+  );
+}
 
 function AppUI() {
   const {
@@ -54,4 +53,4 @@ const AppTitle = styled.h1`
   margin-right: auto;
 `;
 
-export default hot(module)(App)
+// export default hot(module)(App)
