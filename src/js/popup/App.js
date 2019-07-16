@@ -1,10 +1,10 @@
 import React from "react";
-import icon from "../../img/icon-128.png"
 import { hot } from "react-hot-loader";
 import { StitchAuthProvider, useStitchAuth } from "./StitchAuth";
 import styled from "@emotion/styled";
 import Login from "./Login";
 import { Button } from "reactstrap";
+import TodoApp from './TodoApp';
 
 class App extends React.Component {
   render () {
@@ -27,17 +27,8 @@ function AppUI() {
           {isLoggedIn && <Button onClick={handleLogout}>Logout</Button>}
           <AppTitle>Private Slack Archive</AppTitle>
         </Navbar>
-        {isLoggedIn ? <Greeting /> : <Login />}
+        {isLoggedIn ? <TodoApp /> : <Login />}
       </Layout>
-  );
-}
-
-function Greeting() {
-  return (
-      <div>
-        <p>Hello, find me on src/js/popup/greeting_component.jsx</p>
-        <img src={icon} />
-      </div>
   );
 }
 
