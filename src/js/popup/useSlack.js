@@ -20,9 +20,9 @@ export function useSlack() {
   //
   const [state, dispatch] = React.useReducer(slackReducer, { messages: [] });
   // slack Actions
-  const getLastMessages = (n) => {
+  const getLastMessages = (n, dispatch) => {
     const messages = slack.getLastMessages(n);
-    dispatch({ type: "setLastMessages", payload: { messages } });
+    // dispatch({ type: "setLastMessages", payload: { messages } });
   };
   return {
     messages: state.messages,

@@ -1,5 +1,13 @@
-function getLastMessages(n) {
-  return ["a fake message"];
+function getLastMessages(n, dispatch) {
+  chrome.tabs.getSelected(null, function(tab) {
+    chrome.tabs.sendRequest(tab.id, {method: "getText"}, function(response) {
+      var messages = response.data;
+      if (response.method == "getLastMessages") {
+        dispatch({ type: "setLastMessages", payload: { messages } });
+      }
+    });
+  });
+  // return ["a fake message"];
 }
 
 export default {
