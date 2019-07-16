@@ -7,12 +7,16 @@ import TodoList from "./TodoList";
 import TodoControls from "./TodoControls";
 import { useStitchAuth } from "./StitchAuth";
 import { useTodoItems } from "./useTodoItems";
+import { useSlack } from "./useSlack";
 import { Card, CardTitle } from "reactstrap";
+import SlackControls from "./SlackControls";
+import SlackLastMessages from "./SlackLastMessages"
 
 TodoApp.propTypes = {};
 export default function TodoApp() {
   const { currentUser } = useStitchAuth();
   const todo = useTodoItems(currentUser.id);
+  const slack = useSlack();
   // const { items, hasHadTodos, actions } = useTodoItems(currentUser.id);
   return (
     <ErrorBoundary>
@@ -21,6 +25,8 @@ export default function TodoApp() {
           <Title>
             <h1>Your To-Do List</h1>
           </Title>
+          <SlackControls {...slack}/>
+          <SlackLastMessages {...slack}/>
           <TodoControls {...todo} />
           <TodoList {...todo} />
         </TodoCard>
