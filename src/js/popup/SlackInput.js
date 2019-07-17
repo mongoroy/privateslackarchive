@@ -4,10 +4,10 @@ import styled from "@emotion/styled";
 
 import { Button, Input, InputGroup, InputGroupAddon } from "reactstrap";
 
-TodoInput.propTypes = {
+SlackInput.propTypes = {
   addTodo: PropTypes.func,
 };
-export default function TodoInput(props) {
+export default function SlackInput(props) {
   const { getLastMessages, ...inputProps } = props;
   return (
       <Container>
