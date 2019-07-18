@@ -14,7 +14,7 @@ export default function SlackControls(props) {
   const handleInput = e => setInputText(e.target.value);
   const handleGetLastMessages = () => {
     if (inputText) {
-      actions.getLastMessages(inputText);
+      actions.getLastMessages(parseInt(inputText));
       setInputText("");
     }
   };

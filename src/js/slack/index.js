@@ -4,7 +4,7 @@ function getLastMessages(n, dispatch) {
       console.warn(response);
       var messages = response.data;
       if (response.method == "getLastMessages") {
-        dispatch({ type: "setLastMessages", payload: { messages: messages } });
+        dispatch({ type: "setLastMessages", payload: { messages: messages.slice(-(n)) } });
       }
     });
   });
