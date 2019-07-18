@@ -4,21 +4,19 @@ import styled from "@emotion/styled";
 
 import { Button, Input, InputGroup, InputGroupAddon } from "reactstrap";
 
-SlackInput.propTypes = {
-  getLastMessages: PropTypes.func,
-  addMessages: PropTypes.func,
+SlackSearchInput.propTypes = {
+  findMessages: PropTypes.func,
 };
-export default function SlackInput(props) {
-  const { getLastMessages, addMessages, ...inputProps } = props;
+export default function SlackSearchInput(props) {
+  const { findMessages, ...inputProps } = props;
   return (
       <Container>
         <TextInput
             {...inputProps}
             type="text"
-            placeholder="Get how many last messages?"
+            placeholder="Looking for evidence?"
         />
-        <ActionButton action={getLastMessages}>Get</ActionButton>
-        <ActionButton action={addMessages}>Add</ActionButton>
+        <ActionButton action={findMessages}>Find</ActionButton>
       </Container>
   );
 }

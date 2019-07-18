@@ -26,9 +26,9 @@ export default function SlackLastMessages(props) {
 const NoMessages = props => {
   const Layout = styled.div`
     text-align: center;
-    font-size: 2em;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    font-size: 1em;
+    padding-top: 10px;
+    padding-bottom: 10px;
   `;
 
   return (

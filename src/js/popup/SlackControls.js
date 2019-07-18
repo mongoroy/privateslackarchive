@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import SlackInput from "./SlackInput";
+import SlackSearchInput from "./SlackSearchInput";
 
 SlackControls.propTypes = {
   items: PropTypes.array,
@@ -25,6 +26,18 @@ export default function SlackControls(props) {
       handleGetLastMessages();
     }
   };
+
+  const [searchInputText, setSearchInputText] = useState("");
+  const handleSearchInput = e => setSearchInputText(e.target.value);
+  const handleFindMessages = () => {
+    actions.findMessages(searchInputText);
+  }
+  const handleSearchKeyPress = e => {
+    if (e.key === "Enter") {
+      handleFindMessages();
+    }
+  };
+
   return (
       <Layout>
         <SlackInput
@@ -33,6 +46,12 @@ export default function SlackControls(props) {
             addMessages={handleAddMessages}
             onChange={handleInput}
             onKeyDown={handleKeyPress}
+        />
+        <SlackSearchInput
+            value={searchInputText}
+            findMessages={handleFindMessages}
+            onChange={handleSearchInput}
+            onKeyDown={handleSearchKeyPress}
         />
         <AddedMessages />
       </Layout>
@@ -47,9 +66,9 @@ const Layout = styled.div`
 const AddedMessages = props => {
   const Layout = styled.div`
     text-align: center;
-    font-size: 2em;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    font-size: 1em;
+    padding-top: 10px;
+    padding-bottom: 10px;
   `;
 
   return (

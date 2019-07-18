@@ -4,7 +4,7 @@ import { StitchAuthProvider, useStitchAuth } from "./StitchAuth";
 import styled from "@emotion/styled";
 import Login from "./Login";
 import { Button } from "reactstrap";
-import TodoApp from './TodoApp';
+import SlackApp from './SlackApp';
 
 App.propTypes = {};
 export default function App() {
@@ -26,7 +26,7 @@ function AppUI() {
           {isLoggedIn && <Button onClick={handleLogout}>Logout</Button>}
           <AppTitle>Private Slack Archive</AppTitle>
         </Navbar>
-        {isLoggedIn ? <TodoApp /> : <Login />}
+        {isLoggedIn ? <SlackApp /> : <Login />}
       </Layout>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import slack from "../slack";
-import {items, messagesCollection} from "../stitch";
+import {items, messagesCollection, callFindMessages} from "../stitch";
 
 const slackReducer = (state, { type, payload }) => {
   switch (type) {
@@ -16,6 +16,12 @@ const slackReducer = (state, { type, payload }) => {
         messages: [],
         addedMessageCount: payload.messages.length
       }
+    }
+    case 'findMessages': {
+      return {
+        ...state,
+        messages: payload.messages || [],
+      };
     }
 
     default: {
@@ -39,11 +45,14 @@ export function useSlack(userId) {
     const result = await messagesCollection.insertMany(messagesToAdd);
     dispatch({ type: "addMessages", payload: { messages } });
   };
+  const findMessages = async searchText => {
+    callFindMessages(userId, searchText, dispatch);
+  }
   return {
     messages: state.messages,
     addedMessageCount: state.addedMessageCount,
     actions: {
-      getLastMessages, addMessages
+      getLastMessages, addMessages, findMessages
     }
   };
 }
