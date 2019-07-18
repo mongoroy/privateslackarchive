@@ -10,6 +10,18 @@ function getSelectedMessages(dispatch) {
   });
 }
 
+function quoteMessage(message) {
+  chrome.tabs.getSelected(null, function(tab) {
+    chrome.tabs.sendMessage(tab.id, {method: "quote", "message": message}, function(response) {
+      console.warn(response);
+      var messages = response.data;
+      if (response.method == "quote") {
+        console.warn("Succeeded in quoting message");
+      }
+    });
+  });
+}
+
 export default {
-  getSelectedMessages
+  getSelectedMessages, quoteMessage
 }
