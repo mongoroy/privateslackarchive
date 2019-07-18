@@ -7,9 +7,6 @@ const mongoClient = app.getServiceClient(
   "spas"
 );
 
-// TODO: Instantiate a collection handle for todo.items
-const items = mongoClient.db("todo").collection("items");
-
 const messagesCollection = mongoClient.db("psa").collection("messages");
 
 const callFindMessages = function(userId, searchText, dispatch) {
@@ -20,4 +17,4 @@ const callFindMessages = function(userId, searchText, dispatch) {
   })
 }
 
-export { items, messagesCollection, callFindMessages };
+export { messagesCollection, callFindMessages };
