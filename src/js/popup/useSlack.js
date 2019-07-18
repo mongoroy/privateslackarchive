@@ -4,7 +4,7 @@ import {items, messagesCollection, callFindMessages} from "../stitch";
 
 const slackReducer = (state, { type, payload }) => {
   switch (type) {
-    case 'setLastMessages': {
+    case 'getSelectedMessages': {
       return {
         ...state,
         messages: payload.messages || [],
@@ -34,9 +34,9 @@ export function useSlack(userId) {
   //
   const [state, dispatch] = React.useReducer(slackReducer, { messages: [], addedMessageCount: 0 });
   // slack Actions
-  const getLastMessages = (n) => {
-    console.warn("getLastMessages");
-    slack.getLastMessages(n, dispatch);
+  const getSelectedMessages = () => {
+    console.warn("getSelectedMessages");
+    slack.getSelectedMessages(dispatch);
   };
   const addMessages = async messages => {
     const messagesToAdd = messages.map(message => {
@@ -52,7 +52,7 @@ export function useSlack(userId) {
     messages: state.messages,
     addedMessageCount: state.addedMessageCount,
     actions: {
-      getLastMessages, addMessages, findMessages
+      getSelectedMessages, addMessages, findMessages
     }
   };
 }

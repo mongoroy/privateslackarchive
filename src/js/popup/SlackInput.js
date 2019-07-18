@@ -5,33 +5,20 @@ import styled from "@emotion/styled";
 import { Button, Input, InputGroup, InputGroupAddon } from "reactstrap";
 
 SlackInput.propTypes = {
-  getLastMessages: PropTypes.func,
+  getSelectedMessages: PropTypes.func,
   addMessages: PropTypes.func,
 };
 export default function SlackInput(props) {
-  const { getLastMessages, addMessages, ...inputProps } = props;
+  const { getSelectedMessages, addMessages, ...inputProps } = props;
   return (
       <Container>
-        <TextInput
-            {...inputProps}
-            type="text"
-            placeholder="Get how many last messages?"
-        />
-        <ActionButton action={getLastMessages}>Get</ActionButton>
+        <ActionButton action={getSelectedMessages}>Get Selected Messages</ActionButton>
         <ActionButton action={addMessages}>Add</ActionButton>
       </Container>
   );
 }
 const Container = styled(InputGroup)`
   width: 100%;
-`;
-const TextInput = styled(Input)`
-  height: 70px !important;
-  background-color: white;
-  box-sizing: border-box;
-  padding-left: 20px;
-  padding-right: 20px;
-  line-height: 40px;
 `;
 const ActionButton = props => {
   const Text = styled.div`

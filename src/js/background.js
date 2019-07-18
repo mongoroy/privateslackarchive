@@ -12,3 +12,11 @@ chrome.runtime.onInstalled.addListener(function() {
     }]);
   });
 });
+
+/*setInterval(function() {
+  chrome.tabs.getSelected(null, function(tab) {
+    chrome.tabs.sendMessage(tab.id, {method: "checkOverlay"}, function(response) {
+      console.warn(response);
+    });
+  });
+}, 10000)*/

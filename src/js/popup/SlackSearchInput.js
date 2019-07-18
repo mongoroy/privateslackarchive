@@ -22,14 +22,13 @@ export default function SlackSearchInput(props) {
 }
 const Container = styled(InputGroup)`
   width: 100%;
+  padding-top: 10px;
 `;
 const TextInput = styled(Input)`
-  height: 70px !important;
   background-color: white;
   box-sizing: border-box;
   padding-left: 20px;
   padding-right: 20px;
-  line-height: 40px;
 `;
 const ActionButton = props => {
   const Text = styled.div`

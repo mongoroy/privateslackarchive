@@ -10,22 +10,12 @@ SlackControls.propTypes = {
 };
 export default function SlackControls(props) {
   const { messages, actions } = props;
-  const [inputText, setInputText] = useState("");
-  const handleInput = e => setInputText(e.target.value);
-  const handleGetLastMessages = () => {
-    if (inputText) {
-      actions.getLastMessages(parseInt(inputText));
-      setInputText("");
-    }
+  const handleGetSelectedMessages = () => {
+    actions.getSelectedMessages();
   };
   const handleAddMessages = () => {
     actions.addMessages(messages);
   }
-  const handleKeyPress = e => {
-    if (e.key === "Enter") {
-      handleGetLastMessages();
-    }
-  };
 
   const [searchInputText, setSearchInputText] = useState("");
   const handleSearchInput = e => setSearchInputText(e.target.value);
@@ -41,11 +31,8 @@ export default function SlackControls(props) {
   return (
       <Layout>
         <SlackInput
-            value={inputText}
-            getLastMessages={handleGetLastMessages}
+            getSelectedMessages={handleGetSelectedMessages}
             addMessages={handleAddMessages}
-            onChange={handleInput}
-            onKeyDown={handleKeyPress}
         />
         <SlackSearchInput
             value={searchInputText}
