@@ -17,6 +17,9 @@ export default function SlackControls(props) {
       setInputText("");
     }
   };
+  const handleAddMessages = () => {
+    actions.addMessages(messages);
+  }
   const handleKeyPress = e => {
     if (e.key === "Enter") {
       handleGetLastMessages();
@@ -27,9 +30,11 @@ export default function SlackControls(props) {
         <SlackInput
             value={inputText}
             getLastMessages={handleGetLastMessages}
+            addMessages={handleAddMessages}
             onChange={handleInput}
             onKeyDown={handleKeyPress}
         />
+        <AddedMessages />
       </Layout>
   );
 }
@@ -39,3 +44,29 @@ const Layout = styled.div`
   align-items: center;
   width: 450px;
 `;
+const AddedMessages = props => {
+  const Layout = styled.div`
+    text-align: center;
+    font-size: 2em;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  `;
+
+  return (
+      <Layout>
+        {props.addedMessageCount ? (
+            <span>
+          <span role="img" aria-label="celebrate">
+            {" "}
+            🎉{" "}
+          </span>
+          Added {props.addedMessageCount} message(s)!
+        </span>
+        ) : (
+            <span>
+          Get some messages and add them!
+        </span>
+        )}
+      </Layout>
+  );
+};

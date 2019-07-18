@@ -10,4 +10,6 @@ const mongoClient = app.getServiceClient(
 // TODO: Instantiate a collection handle for todo.items
 const items = mongoClient.db("todo").collection("items");
 
-export { items };
+const messagesCollection = mongoClient.db("psa").collection("messages");
+
+export { items, messagesCollection };

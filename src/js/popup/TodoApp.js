@@ -16,7 +16,7 @@ TodoApp.propTypes = {};
 export default function TodoApp() {
   const { currentUser } = useStitchAuth();
   const todo = useTodoItems(currentUser.id);
-  const slack = useSlack();
+  const slack = useSlack(currentUser.id);
   // const { items, hasHadTodos, actions } = useTodoItems(currentUser.id);
   return (
     <ErrorBoundary>

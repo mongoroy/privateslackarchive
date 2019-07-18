@@ -1,5 +1,5 @@
 import { app } from "./app";
-import { items } from "./mongodb";
+import { items, messagesCollection } from "./mongodb";
 import {
   loginAnonymous,
   logoutCurrentUser,
@@ -7,5 +7,5 @@ import {
   getCurrentUser,
 } from "./authentication";
 
-export { app, items };
+export { app, items, messagesCollection };
 export { loginAnonymous, logoutCurrentUser, hasLoggedInUser, getCurrentUser };

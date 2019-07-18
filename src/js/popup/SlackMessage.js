@@ -11,7 +11,9 @@ export default function SlackMessage(props) {
   return (
       <MessageCard>
         <Layout>
-          <Text>{message}</Text>
+          <Text>{message.time}</Text>
+          <Text>{message.sender}</Text>
+          <Text>{message.content}</Text>
         </Layout>
       </MessageCard>
   );

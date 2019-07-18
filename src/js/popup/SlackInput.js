@@ -8,7 +8,7 @@ SlackInput.propTypes = {
   addTodo: PropTypes.func,
 };
 export default function SlackInput(props) {
-  const { getLastMessages, ...inputProps } = props;
+  const { getLastMessages, addMessages, ...inputProps } = props;
   return (
       <Container>
         <TextInput
@@ -17,6 +17,7 @@ export default function SlackInput(props) {
             placeholder="Get how many last messages?"
         />
         <ActionButton action={props.getLastMessages}>Get</ActionButton>
+        <ActionButton action={props.addMessages}>Add</ActionButton>
       </Container>
   );
 }
