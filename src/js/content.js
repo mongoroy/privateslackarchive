@@ -4,13 +4,14 @@ chrome.extension.onMessage.addListener(
   function(request, sender, sendResponse) {
     console.log(request.method);
     if (request.method == "getSelectedMessages") {
-      console.log("calling getSelectedMessages");
       var messages = selectedMessages();
       console.log('grabbed ' + messages.length);
       sendResponse({ data: messages, method: "getSelectedMessages"});
     } else if (request.method == "checkOverlay") {
-      console.log('overlay');
       sendResponse({ data: null, method: "checkOverlay" });
+    } else if (request.method == "quote") {
+      document.getElementById('msg_input').querySelector('.ql-editor').childNodes[0].innerText = request.message;
+      sendResponse({data: null, method: "quote"});
     } else {
       console.log('error unrecognized request.method: ' + request.method);
     }

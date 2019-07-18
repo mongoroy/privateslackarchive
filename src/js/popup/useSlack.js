@@ -47,12 +47,17 @@ export function useSlack(userId) {
   };
   const findMessages = async searchText => {
     callFindMessages(userId, searchText, dispatch);
-  }
+  };
+  const quoteMessage = (message) => {
+    console.warn("quoteMessage");
+    let messageText = "Remember when [" + message.sender + "] at [" + message.time + "] said [" + message.content + "]?";
+    slack.quoteMessage(messageText);
+  };
   return {
     messages: state.messages,
     addedMessageCount: state.addedMessageCount,
     actions: {
-      getSelectedMessages, addMessages, findMessages
+      getSelectedMessages, addMessages, findMessages, quoteMessage
     }
   };
 }

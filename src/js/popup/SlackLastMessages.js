@@ -8,7 +8,7 @@ SlackLastMessages.propTypes = {
   messages: PropTypes.array,
 };
 export default function SlackLastMessages(props) {
-  const { messages } = props;
+  const { messages, actions } = props;
 
   return (
       <ErrorBoundary>
@@ -16,6 +16,7 @@ export default function SlackLastMessages(props) {
           {messages.length === 0 && <NoMessages />}
           {messages.map(message => (
               <SlackMessage
+                  quoteMessage={actions.quoteMessage}
                   message={message}
               />
           ))}
